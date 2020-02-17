@@ -1,0 +1,42 @@
+{
+  "name": "easy-template-x-data-binding",
+  "version": "1.0.0",
+  "description": "Extends easy-template-x to allow it to set data bound controls.",
+  "main": "index.js",
+  "repository": "https://github.com/sebastianrogers/easy-template-x-data-binding.git",
+  "bugs": {
+    "url": "https://github.com/sebastianrogers/easy-template-x-data-binding/issues"
+  },
+  "author": "Sebastian Rogers",
+  "license": "MIT",
+  "keywords": [
+    "docx",
+    "template",
+    "word",
+    "office",
+    "microsoft",
+    "ms",
+    "easy template x",
+    "data binding"
+  ],
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "dependencies": {
+    "easy-template-x": "0.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.8.4",
+    "@babel/plugin-proposal-class-properties": "7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "7.8.3",
+    "@babel/plugin-proposal-optional-catch-binding": "7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "7.8.3",
+    "@babel/preset-typescript": "7.8.3",
+    "@types/jest": "24.0.15",
+    "@types/node": "13.7.1",
+    "babel-plugin-ts-nameof": "^4.2.0",
+    "jest": "24.9.0",
+    "jest-junit": "10.0.0",
+    "typescript": "3.7.5"
+  }
+}
