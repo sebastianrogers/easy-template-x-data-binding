@@ -25,13 +25,7 @@ export class CustomXmlFiles {
     });
   }
 
-  public async setNode(nodePath: string, node: XmlNode) {
-    if (this.files.size === 0) {
-      this.loadFiles();
-    }
-  }
-
-  public async loadFiles(): Promise<Map<string, XmlNode>> {
+  public async load(): Promise<Map<string, XmlNode>> {
     if (this.loaded) {
       return this.files;
     }

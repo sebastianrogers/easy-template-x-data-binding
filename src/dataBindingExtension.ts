@@ -6,13 +6,25 @@ import {
   XmlDepthTracker,
   XmlNodeType,
   first,
-  UnknownContentTypeError
+  UnknownContentTypeError,
+  toDictionary,
+  XmlGeneralNode
 } from "easy-template-x";
 import { CustomXmlFiles } from "./office/customXmlFiles";
 import { XmlNodePath } from "./xml/xmlNodePath";
+import { DataBindingPluginContent, DataBindingTemplatePlugin } from ".";
+import { IMap } from "easy-template-x/dist/types/types";
 
 export class DataBindingExtension extends TemplateExtension {
   private maxXmlDepth = 20;
+
+  protected readonly pluginsLookup: IMap<DataBindingTemplatePlugin>;
+
+  constructor(plugins: DataBindingTemplatePlugin[]) {
+    super();
+    this.pluginsLookup = toDictionary(plugins, p => p.contentType);
+  }
+
   public async execute(
     data: ScopeData,
     context: TemplateContext
@@ -22,27 +34,29 @@ export class DataBindingExtension extends TemplateExtension {
       this.utilities.xmlParser
     );
 
-    (await customXmlFiles.loadFiles()).forEach(customXmlFile => {
+    (await customXmlFiles.load()).forEach(customXmlFile => {
       this.findNodes(customXmlFile).forEach(node => {
         this.updateNode(node, data);
       });
     });
 
-    const headerPaths = [
-      "word/header1.xml",
-      "word/header2.xml",
-      "word/header3.xml"
-    ];
+    await customXmlFiles.save();
 
-    for (const headerPath of headerPaths) {
-      const headerText = await context.docx.rawZipFile
-        .getFile(headerPath)
-        .getContentText();
-      const headerXml = this.utilities.xmlParser.parse(headerText);
-      await this.utilities.compiler.compile(headerXml, data, context);
-      const processedHeaderText = this.utilities.xmlParser.serialize(headerXml);
-      context.docx.rawZipFile.setFile(headerPath, processedHeaderText);
-    }
+    // const headerPaths = [
+    //   "word/header1.xml",
+    //   "word/header2.xml",
+    //   "word/header3.xml"
+    // ];
+
+    // for (const headerPath of headerPaths) {
+    //   const headerText = await context.docx.rawZipFile
+    //     .getFile(headerPath)
+    //     .getContentText();
+    //   const headerXml = this.utilities.xmlParser.parse(headerText);
+    //   await this.utilities.compiler.compile(headerXml, data, context);
+    //   const processedHeaderText = this.utilities.xmlParser.serialize(headerXml);
+    //   context.docx.rawZipFile.setFile(headerPath, processedHeaderText);
+    // }
   }
 
   private findNodes(node: XmlNode): XmlNode[] {
@@ -54,7 +68,7 @@ export class DataBindingExtension extends TemplateExtension {
         nodes.push(node);
       }
 
-      node = this.findNextNode(node, depth);
+      node = this.findNextNode(node, depth) as XmlGeneralNode;
     }
 
     return nodes;
@@ -64,7 +78,7 @@ export class DataBindingExtension extends TemplateExtension {
     // children
     if (node.childNodes && node.childNodes.length) {
       depth.increment();
-      return node.childNodes[0];
+      return node;
     }
 
     // siblings
@@ -106,8 +120,6 @@ export class DataBindingExtension extends TemplateExtension {
   }
 
   private updateNode(node: XmlNode, data: ScopeData): void {
-    this.utilities.docxParser;
-
     const value: string = XmlNodePath.getPath(node);
 
     const content = data.allData[value] as DataBindingPluginContent;

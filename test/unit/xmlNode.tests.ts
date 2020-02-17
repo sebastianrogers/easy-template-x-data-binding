@@ -1,4 +1,4 @@
-import { parseXml } from "./utilities";
+import { parseXml } from "../utilities";
 import { XmlNodePath } from "src/xml/xmlNodePath";
 
 describe("getPath", () => {

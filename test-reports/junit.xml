@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="1" failures="1" time="3.49">
-  <testsuite name="getPath" errors="0" failures="1" skipped="0" timestamp="2020-02-17T11:00:00" time="3.399" tests="1">
-    <testcase classname="getPath gets paths" name="getPath gets paths" time="0.01">
-      <failure>Error: expect(received).toBe(expected) // Object.is equality
-
-Expected: &quot;/root/&quot;
-Received: &quot;/root&quot;
-    at Object.&lt;anonymous&gt; (C:\Users\SebastianRogers\Repos\easy-template-x-data-binding\test\xmlNode.tests.ts:17:38)
-    at Object.asyncJestTest (C:\Users\SebastianRogers\Repos\easy-template-x-data-binding\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:102:37)
-    at C:\Users\SebastianRogers\Repos\easy-template-x-data-binding\node_modules\jest-jasmine2\build\queueRunner.js:43:12
-    at new Promise (&lt;anonymous&gt;)
-    at mapper (C:\Users\SebastianRogers\Repos\easy-template-x-data-binding\node_modules\jest-jasmine2\build\queueRunner.js:26:19)
-    at C:\Users\SebastianRogers\Repos\easy-template-x-data-binding\node_modules\jest-jasmine2\build\queueRunner.js:73:41</failure>
+<testsuites name="jest tests" tests="2" failures="0" time="13.909">
+  <testsuite name="CustomXmlFiles" errors="0" failures="0" skipped="1" timestamp="2020-02-17T17:19:16" time="13.675" tests="2">
+    <testcase classname="CustomXmlFiles loads custom xml files" name="CustomXmlFiles loads custom xml files" time="0.001">
+      <skipped/>
+    </testcase>
+    <testcase classname="CustomXmlFiles saves custom xml files" name="CustomXmlFiles saves custom xml files" time="8.131">
     </testcase>
   </testsuite>
 </testsuites>
