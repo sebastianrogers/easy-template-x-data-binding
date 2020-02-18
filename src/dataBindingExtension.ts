@@ -14,7 +14,6 @@ import { CustomXmlFiles } from "./office/customXmlFiles";
 import { XmlNodePath } from "./xml/xmlNodePath";
 import { DataBindingPluginContent, DataBindingTemplatePlugin } from ".";
 import { IMap } from "easy-template-x/dist/types/types";
-import { EASYDATA_BINDING_VERSION } from "./@types/build";
 
 export class DataBindingExtension extends TemplateExtension {
     /**
@@ -22,8 +21,8 @@ export class DataBindingExtension extends TemplateExtension {
      */
     /* eslint-disable @typescript-eslint/indent */
     public readonly version =
-        typeof EASYDATA_BINDING_VERSION !== "undefined"
-            ? EASYDATA_BINDING_VERSION
+        typeof EASY_DATA_BINDING_VERSION !== "undefined"
+            ? EASY_DATA_BINDING_VERSION
             : "null";
     /* eslint-enable @typescript-eslint/indent */
 

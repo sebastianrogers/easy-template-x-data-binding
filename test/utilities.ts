@@ -35,6 +35,7 @@ export function writeOutFile(
     filename: string,
     file: Buffer
 ): string {
+    fs.existsSync(`./out`) || fs.mkdirSync(`./out`);
     const folderPath = `./out/${id}`;
     fs.existsSync(folderPath) || fs.mkdirSync(folderPath);
     const filePath = `${folderPath}/${filename}`;
