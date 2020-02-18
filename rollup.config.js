@@ -25,7 +25,7 @@ export default {
       extensions
     }),
     replace({
-      EASY_VERSION: JSON.stringify(pkg.version)
+      EASY_DATA_BINDING_VERSION: JSON.stringify(pkg.version)
     }),
     babel({
       extensions

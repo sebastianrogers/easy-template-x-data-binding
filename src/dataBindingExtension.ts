@@ -16,6 +16,14 @@ import { DataBindingPluginContent, DataBindingTemplatePlugin } from ".";
 import { IMap } from "easy-template-x/dist/types/types";
 
 export class DataBindingExtension extends TemplateExtension {
+  /**
+   * Version number of the `easy-template-x` library.
+   */
+  public readonly version =
+    typeof EASYDATA_BINDING_VERSION !== "undefined"
+      ? EASYDATA_BINDING_VERSION
+      : "null";
+
   private maxXmlDepth = 20;
 
   protected readonly pluginsLookup: IMap<DataBindingTemplatePlugin>;
@@ -41,22 +49,6 @@ export class DataBindingExtension extends TemplateExtension {
     });
 
     await customXmlFiles.save();
-
-    // const headerPaths = [
-    //   "word/header1.xml",
-    //   "word/header2.xml",
-    //   "word/header3.xml"
-    // ];
-
-    // for (const headerPath of headerPaths) {
-    //   const headerText = await context.docx.rawZipFile
-    //     .getFile(headerPath)
-    //     .getContentText();
-    //   const headerXml = this.utilities.xmlParser.parse(headerText);
-    //   await this.utilities.compiler.compile(headerXml, data, context);
-    //   const processedHeaderText = this.utilities.xmlParser.serialize(headerXml);
-    //   context.docx.rawZipFile.setFile(headerPath, processedHeaderText);
-    // }
   }
 
   private findNodes(node: XmlNode): XmlNode[] {
