@@ -1,8 +1,15 @@
 import * as fs from "fs";
 import * as del from "del";
-import { XmlNode, XmlParser } from "easy-template-x";
+import { XmlNode, XmlParser, Zip } from "easy-template-x";
+import { CustomXmlFiles } from "src/office";
 
 const xmlParser = new XmlParser();
+
+export async function getCustomXmlFiles(id: string, name: string) {
+  const savedBuffer = readOutFile(id, name);
+  const savedZip = await Zip.load(savedBuffer);
+  return new CustomXmlFiles(savedZip, xmlParser);
+}
 
 export function parseXml(xml: string, removeWhiteSpace = true): XmlNode {
   if (removeWhiteSpace) xml = xml.replace(/\s/g, "");

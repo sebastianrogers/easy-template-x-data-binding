@@ -78,7 +78,7 @@ export class DataBindingExtension extends TemplateExtension {
     // children
     if (node.childNodes && node.childNodes.length) {
       depth.increment();
-      return node;
+      return first(node.childNodes);
     }
 
     // siblings
