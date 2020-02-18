@@ -1,10 +1,10 @@
 import { CustomXmlFiles } from "src/office/customXmlFiles";
 import { Zip, XmlParser, XmlNode } from "easy-template-x";
 import {
-  readFixture,
-  writeOutFile,
-  removeOutFolder,
-  readOutFile
+    readFixture,
+    writeOutFile,
+    removeOutFolder,
+    readOutFile
 } from "test/utilities";
 import { Constructor } from "easy-template-x/dist/types/types";
 
@@ -14,45 +14,47 @@ let customXmlFiles: CustomXmlFiles;
 let zip: Zip;
 
 beforeAll(async () => {
-  removeOutFolder(nameof(CustomXmlFiles));
+    removeOutFolder(nameof(CustomXmlFiles));
 
-  zip = await Zip.load(buffer);
-  customXmlFiles = new CustomXmlFiles(zip, xmlParser);
+    zip = await Zip.load(buffer);
+    customXmlFiles = new CustomXmlFiles(zip, xmlParser);
 });
 
 describe(nameof(CustomXmlFiles), () => {
-  it("loads custom xml files", async () => {
-    const documents = await customXmlFiles.load();
-    expect(documents.size).toBe(1);
-  });
-
-  it("saves custom xml files", async () => {
-    const documents = await customXmlFiles.load();
-    const ticks = new Date().getTime();
-    documents.forEach(document => {
-      document.childNodes
-        .filter(node => node.nodeName === "NUMBER")
-        .forEach(node => {
-          XmlNode.lastTextChild(node).textContent = `${ticks}`;
-        });
+    it("loads custom xml files", async () => {
+        const documents = await customXmlFiles.load();
+        expect(documents.size).toBe(1);
     });
 
-    await customXmlFiles.save();
-    const updatedBuffer = await zip.export(
-      buffer.constructor as Constructor<Buffer>
-    );
+    it("saves custom xml files", async () => {
+        const documents = await customXmlFiles.load();
+        const ticks = new Date().getTime();
+        documents.forEach(document => {
+            document.childNodes
+                .filter(node => node.nodeName === "NUMBER")
+                .forEach(node => {
+                    XmlNode.lastTextChild(node).textContent = `${ticks}`;
+                });
+        });
 
-    writeOutFile(nameof(CustomXmlFiles), `saves.docx`, updatedBuffer);
+        await customXmlFiles.save();
+        const updatedBuffer = await zip.export(
+            buffer.constructor as Constructor<Buffer>
+        );
 
-    const savedBuffer = readOutFile(nameof(CustomXmlFiles), `saves.docx`);
-    const savedZip = await Zip.load(savedBuffer);
-    const savedCustomXmlFiles = new CustomXmlFiles(savedZip, xmlParser);
-    (await savedCustomXmlFiles.load()).forEach(document => {
-      document.childNodes
-        .filter(node => node.nodeName === "NUMBER")
-        .forEach(node => {
-          expect(XmlNode.lastTextChild(node).textContent).toBe(`${ticks}`);
+        writeOutFile(nameof(CustomXmlFiles), `saves.docx`, updatedBuffer);
+
+        const savedBuffer = readOutFile(nameof(CustomXmlFiles), `saves.docx`);
+        const savedZip = await Zip.load(savedBuffer);
+        const savedCustomXmlFiles = new CustomXmlFiles(savedZip, xmlParser);
+        (await savedCustomXmlFiles.load()).forEach(document => {
+            document.childNodes
+                .filter(node => node.nodeName === "NUMBER")
+                .forEach(node => {
+                    expect(XmlNode.lastTextChild(node).textContent).toBe(
+                        `${ticks}`
+                    );
+                });
         });
     });
-  });
 });
