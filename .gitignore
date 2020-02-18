@@ -1,6 +1,9 @@
 # Outputs
 out/
 
+# Test Reports
+test-reports/
+
 # Logs
 logs
 *.log

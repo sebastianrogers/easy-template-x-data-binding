@@ -26,7 +26,7 @@
         "src"
     ],
     "scripts": {
-        "clean": "rimraf .tmp dist test-reports",
+        "clean": "rimraf .tmp dist out test-reports",
         "typecheck": "tsc --noEmit",
         "lint": "eslint \"./{src,test}/**/!(*.d).ts\"",
         "test": "jest --verbose",
