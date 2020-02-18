@@ -4,9 +4,9 @@ import { DataBindingDatePlugin } from "./dataBindingDatePlugin";
 import { DataBindingTextPlugin } from "./dataBindingTextPlugin";
 
 export function createDefaultDataBindingPlugins(): DataBindingTemplatePlugin[] {
-  return [
-    new DataBindingBooleanPlugin(),
-    new DataBindingDatePlugin(),
-    new DataBindingTextPlugin()
-  ];
+    return [
+        new DataBindingBooleanPlugin(),
+        new DataBindingDatePlugin(),
+        new DataBindingTextPlugin()
+    ];
 }
