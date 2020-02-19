@@ -11,7 +11,7 @@ Extends the [easy-template-x](https://github.com/alonrbar/easy-template-x) to im
 
 [Easy Template X](https://github.com/alonrbar/easy-template-x) is an excellent library for creating word documents from templates.
 
-It handles the processing of the documents contents but does not allow editing of the document's metadata, held in Custom XML files inside the document.
+It handles the processing of the documents contents but does not allow editing of the document's metadata, held in [Custom XML files](https://docs.microsoft.com/en-gb/archive/blogs/modonovan/word-2007-content-controls-and-xml-part-1-the-basics) inside the document.
 
 Easy Template X supports [extensions](https://github.com/alonrbar/easy-template-x#extensions) which can be run on the documents either before or after it modifies the contents.
 
