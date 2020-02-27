@@ -10,7 +10,7 @@ describe.each([
     [100, "100"],
     [
         new Date("2020-02-28T12:00:00Z"),
-        "Fri Feb 28 2020 12:00:00 GMT+0000 (Greenwich Mean Time)"
+        new Date("2020-02-28T12:00:00Z").toString()
     ]
 ])("converts %s", (value: any, expected: string) => {
     it("converts", async () => {
