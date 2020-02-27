@@ -1,5 +1,6 @@
 export interface DataBindingPluginContent {
     _type: string;
+    value: any;
 }
 
 export const DataBindingPluginContent = {

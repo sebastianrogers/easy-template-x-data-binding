@@ -21,10 +21,23 @@ export abstract class DataBindingTemplatePlugin extends TemplatePlugin {
      */
     public abstract get contentType(): string;
 
-    public abstract setNodeContents(
+    /**
+     * Convert the value into an appropriate string to store in the customXML
+     * @param value The raw value
+     */
+    public abstract convertToDataBindingValue(value: any): string;
+
+    public setNodeContents(
         node: XmlNode,
         content: DataBindingPluginContent
-    ): void | Promise<void>;
+    ): void | Promise<void> {
+        const contentNode: XmlNode = XmlNode.createTextNode(
+            this.convertToDataBindingValue(content.value)
+        );
+
+        XmlNode.remove(XmlNode.lastTextChild(node));
+        XmlNode.appendChild(node, contentNode);
+    }
 
     /**
      * Called by the TemplateHandler at runtime.
