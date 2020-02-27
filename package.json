@@ -1,6 +1,6 @@
 {
     "name": "easy-template-x-data-binding",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Extends easy-template-x to allow it to set the value of data bound controls.",
     "main": "dist/cjs/easy-template-x-data-binding.js",
     "module": "dist/cjs/easy-template-x-data-binding.js",
