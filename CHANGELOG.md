@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2020-02-27
+
+### Updated
+
+-   Data Binding Date Plugin handles any value not just dates
+
 ## [0.1.1] - 2020-02-19
 
 ### Added

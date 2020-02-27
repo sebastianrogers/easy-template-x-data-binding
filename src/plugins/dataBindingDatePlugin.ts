@@ -17,7 +17,16 @@ export class DataBindingDatePlugin extends DataBindingTemplatePlugin {
         XmlNode.appendChild(textNode, contentNode);
     }
 
-    private getOOXMLDate(date: Date): string {
-        return first(date.toJSON().split("T"));
+    public getOOXMLDate(value: any): string {
+        if (value === null) {
+            return null;
+        }
+
+        const date = new Date(value);
+        if (isNaN(date.valueOf())) {
+            return null;
+        }
+
+        return first(date.toISOString().split("T"));
     }
 }
