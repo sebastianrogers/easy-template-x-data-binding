@@ -20,6 +20,10 @@ Easy Template X supports [extensions](https://github.com/alonrbar/easy-template-
 ```typescript
 import * as fs from "fs";
 import { TemplateHandler, TemplateHandlerOptions } from "easy-template-x";
+import {
+  DataBindingExtension,
+  createDefaultDataBindingPlugins
+} from "easy-template-x-data-binding";
 
 // 1. read template file
 const templateFile = fs.readFileSync("test/fixtures/files/data binding.docx");
@@ -80,7 +84,11 @@ The following example produces the same output while running in the browser.
 Notice that the actual template processing (step 2) is exactly the same as in the previous Node example.
 
 ```typescript
-import { TemplateHandler } from "easy-template-x";
+import { TemplateHandler, TemplateHandlerOptions } from "easy-template-x";
+import {
+  DataBindingExtension,
+  createDefaultDataBindingPlugins
+} from "easy-template-x-data-binding";
 
 // 1. read template file
 
