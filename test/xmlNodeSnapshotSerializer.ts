@@ -15,7 +15,7 @@ const serializer: jest.SnapshotSerializerPlugin = {
     },
 
     print(value) {
-        return XmlNode.serialize(value);
+        return XmlNode.serialize(value as XmlNode);
     }
 };
 
