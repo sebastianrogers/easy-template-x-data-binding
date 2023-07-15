@@ -128,7 +128,7 @@ export class DataBindingExtension extends TemplateExtension {
             throw new UnknownContentTypeError(
                 contentType,
                 value,
-                data.path.join(".")
+                data.pathString()
             );
         }
 
