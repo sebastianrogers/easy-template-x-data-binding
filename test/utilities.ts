@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import * as del from "del";
+import { sync } from "del";
 import { XmlNode, xml, Zip } from "easy-template-x";
 import { CustomXmlFiles } from "src/office";
 
@@ -21,7 +21,7 @@ export function readFixture(filename: string): Buffer {
 
 export function removeOutFolder(id: string) {
     const folderPath = `./out/${id}`;
-    del.sync([folderPath]);
+    sync([folderPath]);
 }
 
 export function readOutFile(id: string, filename: string): Buffer {
