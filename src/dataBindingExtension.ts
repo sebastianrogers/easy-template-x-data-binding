@@ -3,7 +3,6 @@ import {
     ScopeData,
     TemplateContext,
     XmlNode,
-    xml,
     XmlDepthTracker,
     XmlNodeType,
     first,
