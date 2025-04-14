@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2025-04-14
+
+- Upgraded to work with Easy-Template-X 6.2.0
+- Update Dev Packages
+
 ## [0.2.0] - 2020-02-27
 
 ### Updated

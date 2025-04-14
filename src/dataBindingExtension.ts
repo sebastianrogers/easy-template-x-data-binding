@@ -18,14 +18,13 @@ import { IMap } from "easy-template-x/dist/types/types";
 export class DataBindingExtension extends TemplateExtension {
     /**
      * Version number of the `easy-template-x` library.
-     */
-    /* eslint-disable @typescript-eslint/indent */
+    */
+
     public readonly version =
         typeof EASY_DATA_BINDING_VERSION !== "undefined"
             ? EASY_DATA_BINDING_VERSION
             : "null";
-    /* eslint-enable @typescript-eslint/indent */
-
+ 
     protected readonly pluginsLookup: IMap<DataBindingTemplatePlugin>;
 
     private maxXmlDepth = 20;
