@@ -1,16 +1,7 @@
 {
     "name": "easy-template-x-data-binding",
-    "version": "0.2.0",
+    "version": "1.0.0",
     "description": "Extends easy-template-x to allow it to set the value of data bound controls.",
-    "main": "dist/cjs/easy-template-x-data-binding.js",
-    "module": "dist/cjs/easy-template-x-data-binding.js",
-    "typings": "dist/types/index.d.ts",
-    "repository": "https://github.com/sebastianrogers/easy-template-x-data-binding.git",
-    "bugs": {
-        "url": "https://github.com/sebastianrogers/easy-template-x-data-binding/issues"
-    },
-    "author": "Sebastian Rogers",
-    "license": "MIT",
     "keywords": [
         "docx",
         "template",
@@ -21,15 +12,20 @@
         "easy template x",
         "data binding"
     ],
-    "files": [
-        "dist",
-        "src"
-    ],
+    "author": "Sebastian Rogers",
+    "license": "MIT",
+    "homepage": "https://github.com/sebastianrogers/easy-template-x-data-binding",
+    "repository": "https://github.com/sebastianrogers/easy-template-x-data-binding.git",
+    "bugs": {
+        "url": "https://github.com/sebastianrogers/easy-template-x-data-binding/issues"
+    },
+    "main": "dist/cjs/easy-template-x-data-binding.js",
+    "module": "dist/cjs/easy-template-x-data-binding.js",
     "scripts": {
-        "clean": "rimraf .tmp dist out test-reports",
+        "clean": "rimraf .tmp dist out test-reports && yarn clean-dist-verify",
         "typecheck": "tsc --noEmit",
         "lint": "eslint \"./{src,test}/**/!(*.d).ts\"",
-        "test": "jest --verbose",
+        "test": "jest --detectOpenHandles --verbose",
         "quality": "yarn typecheck && yarn lint && yarn test",
         "build-src": "rollup -c",
         "build-types": "tsc -p tsconfig.types.json --emitDeclarationOnly",
@@ -37,7 +33,7 @@
         "release": "yarn clean && yarn quality && yarn build"
     },
     "dependencies": {
-        "easy-template-x": "3.2.0"
+        "easy-template-x": "6.2.0"
     },
     "devDependencies": {
         "@babel/core": "7.22.5",

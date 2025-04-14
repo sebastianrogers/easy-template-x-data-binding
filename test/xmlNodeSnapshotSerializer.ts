@@ -1,4 +1,4 @@
-import { XmlNodeType, XmlNode } from "easy-template-x";
+import { XmlNodeType, xml, XmlNode } from "easy-template-x";
 
 // add XmlNode snapshot serializer
 // (otherwise simple image markup snapshot takes more than 100MB!)
@@ -15,7 +15,7 @@ const serializer: jest.SnapshotSerializerPlugin = {
     },
 
     print(value) {
-        return XmlNode.serialize(value as XmlNode);
+        return xml.parser.serializeNode(value as XmlNode);
     }
 };
 

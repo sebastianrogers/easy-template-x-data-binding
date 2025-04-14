@@ -1,5 +1,5 @@
 import { CustomXmlFiles } from "src/office/customXmlFiles";
-import { Zip, XmlParser, XmlNode } from "easy-template-x";
+import { Zip, xml } from "easy-template-x";
 import {
     readFixture,
     writeOutFile,
@@ -8,7 +8,6 @@ import {
 } from "test/utilities";
 import { Constructor } from "easy-template-x/dist/types/types";
 
-const xmlParser = new XmlParser();
 const buffer = readFixture("data binding.docx");
 let customXmlFiles: CustomXmlFiles;
 let zip: Zip;
@@ -17,7 +16,7 @@ beforeAll(async () => {
     removeOutFolder(nameof(CustomXmlFiles));
 
     zip = await Zip.load(buffer);
-    customXmlFiles = new CustomXmlFiles(zip, xmlParser);
+    customXmlFiles = new CustomXmlFiles(zip);
 });
 
 describe(nameof(CustomXmlFiles), () => {
@@ -33,7 +32,7 @@ describe(nameof(CustomXmlFiles), () => {
             document.childNodes
                 .filter(node => node.nodeName === "NUMBER")
                 .forEach(node => {
-                    XmlNode.lastTextChild(node).textContent = `${ticks}`;
+                    xml.query.lastTextChild(node).textContent = `${ticks}`;
                 });
         });
 
@@ -46,12 +45,12 @@ describe(nameof(CustomXmlFiles), () => {
 
         const savedBuffer = readOutFile(nameof(CustomXmlFiles), `saves.docx`);
         const savedZip = await Zip.load(savedBuffer);
-        const savedCustomXmlFiles = new CustomXmlFiles(savedZip, xmlParser);
+        const savedCustomXmlFiles = new CustomXmlFiles(savedZip);
         (await savedCustomXmlFiles.load()).forEach(document => {
             document.childNodes
                 .filter(node => node.nodeName === "NUMBER")
                 .forEach(node => {
-                    expect(XmlNode.lastTextChild(node).textContent).toBe(
+                    expect(xml.query.lastTextChild(node).textContent).toBe(
                         `${ticks}`
                     );
                 });

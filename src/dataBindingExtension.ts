@@ -3,6 +3,7 @@ import {
     ScopeData,
     TemplateContext,
     XmlNode,
+    xml,
     XmlDepthTracker,
     XmlNodeType,
     first,
@@ -40,8 +41,7 @@ export class DataBindingExtension extends TemplateExtension {
         context: TemplateContext
     ): Promise<void> {
         const customXmlFiles = new CustomXmlFiles(
-            context.docx.rawZipFile,
-            this.utilities.xmlParser
+            context.docx.rawZipFile
         );
 
         (await customXmlFiles.load()).forEach(customXmlFile => {
@@ -116,7 +116,7 @@ export class DataBindingExtension extends TemplateExtension {
     private updateNode(node: XmlNode, data: ScopeData): void {
         const value: string = XmlNodePath.getPath(node);
 
-        const content = data.allData[value] as DataBindingPluginContent;
+        const content = data.allData[value] as unknown as DataBindingPluginContent;
         if (!content) {
             return;
         }

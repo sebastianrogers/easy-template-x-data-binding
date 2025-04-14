@@ -1108,10 +1108,10 @@
     "@typescript-eslint/types" "5.60.1"
     eslint-visitor-keys "^3.3.0"
 
-"@xmldom/xmldom@0.8.7":
-  version "0.8.7"
-  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.7.tgz#8b1e39c547013941974d83ad5e9cf5042071a9a0"
-  integrity sha512-sI1Ly2cODlWStkINzqGrZ8K6n+MTSbAeQnAipGyL+KZCXuHaRlj2gyyy8B/9MvsFFqN7XHryQnB2QwhzvJXovg==
+"@xmldom/xmldom@0.8.10":
+  version "0.8.10"
+  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.10.tgz#a1337ca426aa61cef9fe15b5b28e340a72f6fa99"
+  integrity sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==
 
 acorn-jsx@^5.3.2:
   version "5.3.2"
@@ -1558,12 +1558,13 @@ eastasianwidth@^0.2.0:
   resolved "https://registry.yarnpkg.com/eastasianwidth/-/eastasianwidth-0.2.0.tgz#696ce2ec0aa0e6ea93a397ffcf24aa7840c827cb"
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
-easy-template-x@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/easy-template-x/-/easy-template-x-3.2.0.tgz#ad154e9ccea5ebc0138dd7e49a685d8f61887092"
-  integrity sha512-dg4fY1Dc9vMGynHlake2YXOqFaY9b0KQXaFXsxEuyvDBBFbw6MZTSUuGZ95euv3Q3io5XtlGmk76ly5v1I3Q+g==
+easy-template-x@6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/easy-template-x/-/easy-template-x-6.2.0.tgz#f0f0f2dc6de95f5fc6fbccf94fa8feda07acf38d"
+  integrity sha512-fMsDnq1GCPB9pBmxWrrd4cKGQQx+dg9npTWBqF+rPquCisp6X3bo2QR80yZdEHpnSgPQzQen3efnNag11EavMg==
   dependencies:
-    "@xmldom/xmldom" "0.8.7"
+    "@xmldom/xmldom" "0.8.10"
+    json5 "2.2.3"
     jszip "3.10.1"
     lodash.get "4.4.2"
 
@@ -2628,7 +2629,7 @@ json-stable-stringify-without-jsonify@^1.0.1:
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
   integrity sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==
 
-json5@^2.2.2:
+json5@2.2.3, json5@^2.2.2:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
   integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
