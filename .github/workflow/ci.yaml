@@ -1,0 +1,40 @@
+name: [CI]
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18.20.8' #So it continues to work in SPFX.
+
+      - name: Cache node modules
+        id: node-modules-cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node_modules-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      
+      - run: yarn install 
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+
+      - run: yarn typecheck
+      - run: yarn lint
+      - run: yarn test --ci --runInBand
+
+      - name: Test Summary
+        if: always()
+        uses: test-summary/actions@v2
+        with:
+          path: "test-reports/junit.xml"
+     
+      - name: Detailed Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with: 
+          name: Test Report
+          path: test-reports/report.html
