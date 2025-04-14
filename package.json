@@ -13,6 +13,12 @@
         "data binding"
     ],
     "author": "Sebastian Rogers",
+    "contributors": [
+        {
+            "name": "Paul Matthews",
+            "url": "https://github.com/pmatthews05"
+        }
+    ],
     "license": "MIT",
     "homepage": "https://github.com/sebastianrogers/easy-template-x-data-binding",
     "repository": "https://github.com/sebastianrogers/easy-template-x-data-binding.git",
