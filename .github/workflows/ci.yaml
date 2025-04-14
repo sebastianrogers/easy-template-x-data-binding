@@ -28,9 +28,9 @@ jobs:
 
       - name: Test Summary
         if: always()
-        uses: test-summary/actions@v2
+        uses: test-summary/action@v2
         with:
-          path: "test-reports/junit.xml"
+          paths: "test-reports/junit.xml"
      
       - name: Detailed Test Report
         if: always()
