@@ -25,8 +25,18 @@
     "bugs": {
         "url": "https://github.com/sebastianrogers/easy-template-x-data-binding/issues"
     },
-    "main": "dist/cjs/easy-template-x-data-binding.js",
-    "module": "dist/cjs/easy-template-x-data-binding.js",
+    "main": "dist/cjs/easy-template-x-data-binding.cjs",
+    "module": "dist/cjs/easy-template-x-data-binding.mjs",
+    "exports": {
+        "require": {
+          "types": "./dist/types/index.d.ts",
+          "default": "./dist/cjs/easy-template-x-data-binding.cjs"
+        },
+        "import": {
+          "types": "./dist/types/index.d.ts",
+          "default": "./dist/es/easy-template-x-data-binding.mjs"
+        }
+      },
     "scripts": {
         "clean": "rimraf .tmp dist out test-reports && yarn clean-dist-verify",
         "typecheck": "tsc --noEmit",
