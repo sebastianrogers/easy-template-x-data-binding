@@ -33,10 +33,18 @@ export function writeOutFile(
     filename: string,
     file: Buffer
 ): string {
-    fs.existsSync(`./out`) || fs.mkdirSync(`./out`);
+    if (!fs.existsSync(`./out`)) {
+        fs.mkdirSync(`./out`);
+    };
     const folderPath = `./out/${id}`;
-    fs.existsSync(folderPath) || fs.mkdirSync(folderPath);
+    if (!fs.existsSync(folderPath)) {
+        fs.mkdirSync(folderPath);
+    };
     const filePath = `${folderPath}/${filename}`;
     fs.writeFileSync(filePath, file);
     return filePath;
+}
+
+if (!fs.existsSync(`./out`)) {
+    fs.mkdirSync(`./out`);
 }
