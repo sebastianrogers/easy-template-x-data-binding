@@ -18,14 +18,13 @@ import { IMap } from "easy-template-x/dist/types/types";
 export class DataBindingExtension extends TemplateExtension {
     /**
      * Version number of the `easy-template-x` library.
-     */
-    /* eslint-disable @typescript-eslint/indent */
+    */
+
     public readonly version =
         typeof EASY_DATA_BINDING_VERSION !== "undefined"
             ? EASY_DATA_BINDING_VERSION
             : "null";
-    /* eslint-enable @typescript-eslint/indent */
-
+ 
     protected readonly pluginsLookup: IMap<DataBindingTemplatePlugin>;
 
     private maxXmlDepth = 20;
@@ -40,8 +39,7 @@ export class DataBindingExtension extends TemplateExtension {
         context: TemplateContext
     ): Promise<void> {
         const customXmlFiles = new CustomXmlFiles(
-            context.docx.rawZipFile,
-            this.utilities.xmlParser
+            context.docx.rawZipFile
         );
 
         (await customXmlFiles.load()).forEach(customXmlFile => {
@@ -116,7 +114,7 @@ export class DataBindingExtension extends TemplateExtension {
     private updateNode(node: XmlNode, data: ScopeData): void {
         const value: string = XmlNodePath.getPath(node);
 
-        const content = data.allData[value] as DataBindingPluginContent;
+        const content = data.allData[value] as unknown as DataBindingPluginContent;
         if (!content) {
             return;
         }

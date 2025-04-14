@@ -18,7 +18,7 @@ export type ExtensionContent = PrimitiveTemplateContent | PluginTemplateContent;
 //         width: 600
 //     }
 // };
-//
+
 // const doc = await handler.process(template, data);
 //
 // (tested with TypeScript 3.5.3)

@@ -1,4 +1,4 @@
-import { Path, XmlParser, XmlNode, Zip } from "easy-template-x";
+import { Path, xml, XmlNode, Zip } from "easy-template-x";
 
 /**
  * http://officeopenxml.com/anatomyofOOXML.php
@@ -10,8 +10,7 @@ export class CustomXmlFiles {
     private readonly files: Map<string, XmlNode> = new Map<string, XmlNode>();
 
     constructor(
-        private readonly zip: Zip,
-        private readonly xmlParser: XmlParser
+        private readonly zip: Zip
     ) {}
 
     public async save() {
@@ -21,7 +20,7 @@ export class CustomXmlFiles {
         }
 
         this.files.forEach((value, key) => {
-            this.zip.setFile(key, this.xmlParser.serialize(value));
+            this.zip.setFile(key, xml.parser.serializeNode(value));
         });
     }
 
@@ -39,7 +38,7 @@ export class CustomXmlFiles {
             const fileData: string = await this.zip
                 .getFile(path)
                 .getContentText();
-            const node: XmlNode = this.xmlParser.parse(fileData);
+            const node: XmlNode = xml.parser.parse(fileData);
             this.files.set(path, node);
         }
 

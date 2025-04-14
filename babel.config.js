@@ -1,12 +1,15 @@
 const isJest = process.env.NODE_ENV === "test";
 
 module.exports = {
+  assumptions: {
+    setSpreadProperties: true
+  },
   presets: ["@babel/typescript"],
   plugins: [
-    "ts-nameof",
-    "@babel/proposal-class-properties",
-    "@babel/proposal-object-rest-spread",
-    "@babel/proposal-optional-catch-binding",
+    "babel-plugin-ts-nameof",
+    "@babel/plugin-transform-class-properties",
+    ["@babel/plugin-transform-object-rest-spread", { "useBuiltIns": true }],
+    "@babel/plugin-transform-optional-catch-binding",
     isJest && "@babel/transform-modules-commonjs"
   ].filter(Boolean)
 };
