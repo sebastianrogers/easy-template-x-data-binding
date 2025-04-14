@@ -50,7 +50,6 @@
         "@babel/plugin-transform-optional-catch-binding": "^7.25.9",
         "@babel/preset-typescript": "7.27.0",
         "@rollup/plugin-replace": "6.0.2",
-        "@types/del": "^4.0.3",
         "@types/jest": "29.5.14",
         "@types/node": "22.14.1",
         "@types/ts-nameof": "^4.2.5",
