@@ -221,3 +221,11 @@ Mainly used with check box controls. Updates the text of the node with 'true' or
 ### Date plugin
 
 Mainly used with date box controls. Updates the text of the node with the date in 'yyyy-mm-dd' format. Expects value to be a Date.
+
+## Build
+
+```sh
+yarn install
+npm login
+npm publish --access=public
+```
