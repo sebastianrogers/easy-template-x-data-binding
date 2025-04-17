@@ -1,6 +1,6 @@
 {
   "name": "easy-template-x-data-binding",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Extends easy-template-x to allow it to set the value of data bound controls.",
   "keywords": [
     "docx",
