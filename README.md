@@ -4,7 +4,6 @@ Extends the [easy-template-x](https://github.com/alonrbar/easy-template-x) to im
 
 [![npm version](https://img.shields.io/npm/v/easy-template-x-data-binding.svg)](https://www.npmjs.com/package/easy-template-x-data-binding)
 [![npm license](https://img.shields.io/npm/l/easy-template-x-data-binding.svg)](https://www.npmjs.com/package/easy-template-x-data-binding)
-[![dependencies Status](https://david-dm.org/sebastianrogers/easy-template-x-data-binding/status.svg)](https://david-dm.org/sebastianrogers/easy-template-x-data-binding)
 
 ## Easy Template X Extensions
 
